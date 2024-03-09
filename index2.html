@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image:url(./div.jpg);
+        }
+        form{
+            position: absolute;
+            border: 2px solid white;
+            width:30%;
+            height: 40%;
+            top:30%;
+            left:35%;
+            background:transparent;
+            backdrop-filter: blur(8px);
+        }
+        h1{
+            color: white;
+            font-weight: normal;
+        }
+        input{
+           background-color: transparent;
+           border: none;
+           border-bottom:1px solid white;
+           margin-left: 25%;
+           color: white;
+        }
+        p{
+            display: inline;
+        }
+        button{
+            border:none;
+            background-color: rgb(215, 76, 99);
+            color:white;
+            border-radius: 3px;
+            padding:5px;
+            width:30%;
+        }
+    </style>
+</head>
+<body>
+    <br>
+    <br>
+    <center><h1>Login in</h1></center>
+    <form>
+        <br>
+        <br>
+        <!--<center><h1>Login</h1></center>!-->
+        <input type="text" size="30%" placeholder="username">
+        <br>
+        <br>
+        <br>
+        <input type="password" size="30%" placeholder="Password">
+        <br>
+        <br>
+        <input type="checkbox" > <p style="color:white">Remember me</p>
+        <br>
+        <br>
+       <input type="submit" value="Login">
+       <br>
+    </form>
+    <center><button style="width:70px;margin-top:30%" >go back</button></center>
+    <script>
+       /* var a=document.getElementsByTagName("button")
+        a[0].addEventListener("click",fun1)
+
+        function fun1(){
+            window.location.assign("index1.html")
+            window.history.forward("index1.html")
+        }
+
+        a[1].addEventListener("click",fun2)
+
+        function fun2(){
+            window.location.assign("index1.html")
+            window.history.back("index1.html")
+        }*/
+
+    var a=document.getElementsByTagName("button")
+    a[0].addEventListener("click",()=>{
+        window.location.assign("./index.html")
+    }
+    )
+
+      var b=document.forms
+      console.log(b[0])
+      var e=JSON.parse(window.localStorage.getItem("arr"))
+        
+      b[0].addEventListener("submit",(event)=>{
+        event.preventDefault()
+
+        var c=event.target[0].value;
+        var d=event.target[1].value;
+        
+        
+
+        if(c!="" && d!=""){
+            var t=0;
+         
+        for(i=0;i<e.length;i++){
+
+            if(c==e[i]["username"] && d==e[i]["password"]){
+               
+                t++
+                
+
+            }
+        }
+        if(t==0){
+            alert("Your not yet registered")
+        }else{
+            window.location.assign("./index4.html")
+            alert("congrates")
+        }
+    }else{
+
+       var f= alert("Fill the fields")
+
+    }
+        event.target[0].value=""
+        event.target[1].value=""
+     } )
+
+    </script>
+    
+</body>
+</html>

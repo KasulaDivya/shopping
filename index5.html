@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        #div1{
+            display: flex;
+            display: inline-block;
+            width:30%;
+            height: 400px;
+            margin-left: 30px;
+            margin-bottom: 15px;
+            border:2px solid white;
+            background-color:white;
+            border-radius: 20px;
+            
+            
+        }
+        #img1{
+            width: 200px;
+            height:200px;
+            margin-left: 100px;
+            
+        
+        }
+        h1{
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <center>
+    <h1>
+            Electronic Device's
+    </h1>
+    </center>
+</body>
+<script>
+    
+    var d=JSON.parse(window.localStorage.getItem("arr"))
+    console.log(d);
+    
+    for(i=0;i<d.length;i++){
+
+        if(d[i]["category"]=="electronics"){
+
+        
+            var a=document.createElement("div")
+            a.setAttribute("id","div1")
+            document.body.appendChild(a)
+            var b=document.createElement("img")
+            b.setAttribute("src",d[i]["image"])
+            b.setAttribute("id","img1")
+            a.appendChild(b)
+            var l=document.createElement("h3")
+            var m=document.createElement("h3")
+            var n=document.createElement("p")
+            a.appendChild(l)
+            a.appendChild(m)
+            a.appendChild(n)
+            var h=d[0]["category"];
+            var j=d[i]["price"];
+            var u=d[0]["title"]
+            l.innerText="Category:"+h
+            m.innerText="Price:"+j
+            n.innerText=u
+            
+            
+           
+        }
+    }
+    
+</script>
+</html>

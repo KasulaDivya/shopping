@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: cornflowerblue;
+            background-image: url(./bg1.jpg);
+            opacity: 0.75;
+        }
+        form{
+            width:700px;
+            height: 300px;
+            margin-top: 3%;
+            margin-left: 30%;
+            border: 3px solid white;
+            background-color:transparent;
+            border-radius: 10px;
+            color: white;
+            
+        }
+        input{
+            color:white;
+            margin-left: 40%;
+            margin-bottom: 2%;
+            background-color: transparent;
+        }
+        #t{
+            margin-left: 56%;
+            margin-bottom: 6%;
+        }
+        label{
+            margin-left: 43px;
+        }
+        h1{
+            color:white;
+            margin-top: 8%;
+            margin-left: 6%;
+        }
+    </style>
+</head>
+<body>
+    <center><h1>Registration page</h1></center>
+        <form>
+            <br>
+            <br>
+            <br>
+            <label>username</label>
+            <input type="text" placeholder="username"><br>
+            <label>password</label>
+            <input type="password" placeholder="password"><br>
+            <label>confirm password</label><br>
+            <input type="password" placeholder="confirm password" id="t">
+            <input type="submit" placeholder="register" value="register">
+            <input id="login" type="button"  value="Log in" style="margin-left:10px">
+        </form>
+    <script>
+        var formm=document.forms
+        var arr=[]
+        console.log(arr)
+        formm[0].addEventListener("submit",(event)=>{
+            event.preventDefault();
+            var e=event.target[0].value
+            var b=event.target[2].value;
+            var c=event.target[1].value;
+            
+
+            /*if(e!="" && b!="" && c!=""){
+            for(i=0;i<r.length;i++){
+                if(r[i]["username"]==e){
+                    var y=alert("ur already registered")
+                }break;
+            }
+
+            if(b!=c){
+
+                var t=alert("check the confirm password");
+
+            }else{
+            
+               // if(e!="" && b!="" && c!=""){
+                    
+
+                
+        
+                        
+                            //if(e!=r[j]["username"] && b!=r[j]["password"])
+                                var obj={
+                                    username:event.target[0].value,
+                                    password:event.target[1].value,}
+                    
+                                arr.push(obj);
+                                
+                                window.localStorage.setItem("arr",JSON.stringify(arr));
+                               // var h=alert("successfully registered log in now");
+                            
+                            
+                                
+                         
+                
+        }
+            
+
+    }
+
+       
+
+                event.target[0].value=""
+                event.target[1].value=""
+                event.target[2].value=""
+        
+                
+        })*/
+
+        
+
+        if(e!="" && b!="" && c!="") {
+            if(b!=c){
+                alert("check the confirm password")
+            }else{
+
+            var r=JSON.parse(window.localStorage.getItem("arr"))
+            if(r==null){
+                var obj={
+                    username:e,
+                    password:b
+
+            }
+
+            arr.push(obj);
+            window.localStorage.setItem("arr",JSON.stringify(arr));
+
+            alert("successfully registered")
+
+            event.target[0].value=""
+            event.target[1].value=""
+            event.target[2].value=""
+            }else{ 
+            for(h=0;h<r.length;h++){
+                var c=0
+                if(e==r[h]["username"]){
+                    c++
+                    alert("ur already register")
+                    event.target[0].value=""
+                    event.target[1].value=""
+                    event.target[2].value=""
+                    break;
+                    
+                }
+
+            } 
+            if(c==0){
+                var obj={
+                    username:e,
+                    password:b
+
+            }
+
+            arr.push(obj);
+            window.localStorage.setItem("arr",JSON.stringify(arr));
+
+            alert("successfully registered")
+
+            event.target[0].value=""
+            event.target[1].value=""
+            event.target[2].value=""
+
+        }
+            }
+    }
+    
+ }else{
+    alert("enter the user details")
+ }   })
+
+ var j=document.getElementById("login");
+        j.addEventListener("click",()=>
+        {
+            window.location.assign("index2.html")
+        })
+        
+        
+    </script>
+</body>
+
+</html>
